@@ -1,0 +1,23 @@
+---
+# tasks file for ssh_check
+- name: "Test connection for configured SSH port"
+  local_action:
+    module: "wait_for"
+    host: "{{inventory_hostname}}"
+    port: "{{ansible_port}}"
+    state: "started"
+    connect_timeout: 1
+    timeout: 2
+  ignore_errors: True
+  register: configured_ssh
+
+- name: "Set ansible_port to default SSH port"
+  set_fact:
+    sshd_port: "{{ansible_port}}"
+    ansible_port: 22
+  when:
+  - configured_ssh|failed
+
+- name: "Gather facts"
+  setup:
+
