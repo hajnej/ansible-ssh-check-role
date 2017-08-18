@@ -11,7 +11,7 @@ There is not any prerequisities for this role.
 Role Variables
 --------------
 
-Only ansible internal variables are used. `ansible_port` contains configured prt number which defaults to 22 in case it is not preconfigured.
+Only ansible internal variables are used. `ansible_port` contains configured port number which defaults to 22 in case it is not preconfigured.
 
 Dependencies
 ------------
