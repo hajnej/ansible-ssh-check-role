@@ -2,6 +2,7 @@ ansible-ssh-check-role
 =========
 
 This role is used for checking SSH access through default SSH port or preconfigured port in inventory.
+
 Requirements
 ------------
 
