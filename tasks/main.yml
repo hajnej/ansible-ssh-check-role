@@ -5,9 +5,10 @@
     sshd_port: "{{ansible_port}}"
 
 - name: "Test connection for configured SSH port"
+  become: no
   local_action:
     module: "wait_for"
-    host: "{{inventory_hostname}}"
+    host: "{{ansible_host}}"
     port: "{{ansible_port}}"
     state: "started"
     connect_timeout: 1
